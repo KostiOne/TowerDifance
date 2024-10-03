@@ -23,7 +23,6 @@ public class CoordinateLabel : MonoBehaviour
     
     void LabelsBecomeInvisable(){
         if(Input.GetKeyDown(KeyCode.C)){
-            Debug.Log("1");
            label.enabled = !label.IsActive();
         }
     }

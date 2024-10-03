@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyMoover : MonoBehaviour
 {
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
@@ -30,7 +31,11 @@ public class EnemyMoover : MonoBehaviour
         GameObject parent = GameObject.FindGameObjectWithTag("Path");
         foreach (Transform child in parent.transform)
         {
-            path.Add(child.GetComponent<Waypoint>());
+            Waypoint waypoint = child.GetComponent<Waypoint>();
+            if(waypoint != null){
+
+                path.Add(waypoint);
+            }
         }
     }
 
@@ -38,23 +43,30 @@ public class EnemyMoover : MonoBehaviour
         transform.position = path[0].transform.position;
     }
 
-    IEnumerator WayToTHePoint(){
-        foreach(Waypoint Waypoint1 in path){
+    IEnumerator WayToTHePoint()
+    {
+        foreach (Waypoint Waypoint1 in path)
+        {
             //Debug.Log(Waypoint1.name);
-            Vector3  strartPosition = transform.position;
+            Vector3 strartPosition = transform.position;
             Vector3 endPosition = Waypoint1.transform.position;
             float travelPercent = 0f;
 
             transform.LookAt(endPosition);
 
-            while (travelPercent < 1f){
+            while (travelPercent < 1f)
+            {
                 travelPercent += Time.deltaTime * speed;
                 transform.position = Vector3.Lerp(strartPosition, endPosition, travelPercent);
                 yield return new WaitForEndOfFrame();
             }
         }
+        Finish();
+    }
+
+    private void Finish()
+    {
         enemy.PenaltyApply();
         gameObject.SetActive(false);
     }
-
 }
