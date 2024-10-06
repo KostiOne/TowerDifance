@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int health = 5;
+    [SerializeField] int DifficaltyRump =1;
     int current_hit_points;
     Enemy enemy;
     // Start is called before the first frame update
@@ -26,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
         if(current_hit_points <= 0){
             enemy.RewardGold();
             gameObject.SetActive(false);
+            health += DifficaltyRump;
         }
     }
 }

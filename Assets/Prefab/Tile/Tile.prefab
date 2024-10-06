@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7214062453577774045}
   - component: {fileID: 3187719590043446291}
   - component: {fileID: 9185597605954206451}
-  - component: {fileID: 3817316263293524882}
+  - component: {fileID: 4602391624125542001}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254577764051366150}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 3187719590043446291}
   m_maskType: 0
---- !u!114 &3817316263293524882
+--- !u!114 &4602391624125542001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,6 +186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColour: {r: 1, g: 1, b: 1, a: 1}
   blockColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  pathColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  exploredColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &390972613745226440
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,8 +197,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 432467207437303812}
-  - component: {fileID: 3471227640175373057}
   - component: {fileID: 731261374216163821}
+  - component: {fileID: 2176805567737106391}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -221,20 +223,6 @@ Transform:
   - {fileID: 7214062453577774045}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3471227640175373057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390972613745226440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4acd645ba76108248a65cb71c12b3ae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 8621903577463419573, guid: 70974179bed56b04c8a096f56437a2e3, type: 3}
-  isPlacable: 0
 --- !u!65 &731261374216163821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -256,6 +244,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 0.5, z: 10}
   m_Center: {x: 0, y: -0.3, z: 0}
+--- !u!114 &2176805567737106391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390972613745226440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd9527ec74c17e40819e6170f1ffc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 8621903577463419573, guid: 70974179bed56b04c8a096f56437a2e3, type: 3}
+  isPlaceble: 1
 --- !u!1 &6340317673244049861
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class Bank : MonoBehaviour
         currentBalance -= Mathf.Abs(amount);
         UpdateUICurrency();
         if(currentBalance < 0){
-           //LooseRame
+           ReloadScene();
         }
     }
 
